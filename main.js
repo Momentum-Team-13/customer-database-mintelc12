@@ -45,23 +45,21 @@ for (let customer of customers) {
     let stateAbbr = (nameToAbbr(customer.location.state))
     cityStateElement.innerText = `${customer.location.city}, ${stateAbbr} ${customer.location.postcode}`
     contentElement.appendChild(cityStateElement)
-    // let stateAbbr = (nameToAbbr(customer.location.state))
-    // cityStateElement.innerText = `${customer.location.state}`
-    // contentElement.appendChild(cityStateElement)
-
-    // let dt = document.createElement("div")
-    // dt.DATE_MED(`$DOB: ${customer.dob.date}`).toFormat("LLL dd yyyy")
+    
 
     // customer DOB:
     let dobElement = document.createElement("div")
-    dobElement.classList.add("center")
-    dobElement.innerText = `DOB: ${customer.dob.date}`
+    let dobFormat = moment(customer.dob.date).format("MMM Do YYYY");
+    // dobElement.classList.add("center");
+    dobElement.innerText = `DOB: ${dobFormat}`
     contentElement.appendChild(dobElement)
+
 
     // customer registration date
     let registeredElement = document.createElement("div")
     registeredElement.classList.add("center")
-    registeredElement.innerText = `Date Registered: ${customer.registered.date}`
+    let registeredFormat = moment(customer.registered.date).format("MMM Do YYYY")
+    registeredElement.innerText = `Date Registered: ${registeredFormat}`
     contentElement.appendChild(registeredElement)
 
     
