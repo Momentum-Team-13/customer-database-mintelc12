@@ -1,0 +1,28 @@
+#customer-list {
+    padding: 10px;
+    text-align: center;
+}
+
+.customer {
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+.row-1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px
+}
+
+.row-2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px
+}
+
+.row-3 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px
+}
