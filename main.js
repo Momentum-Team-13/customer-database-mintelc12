@@ -13,15 +13,15 @@ for (let customer of customers) {
     contentElement.classList.add("center")
 
     // customer image
-    let pictureElement = document.createElement("picture")
-    pictureElement.src = ""
+    let pictureElement = document.createElement("img")
     pictureElement.alt = "Customer Photograph"
     pictureElement.classList.add("center")
+    pictureElement.src = `${customer.picture.large}`
     contentElement.appendChild(pictureElement)
     customerElement.appendChild(contentElement)
 
     // customer name
-    let nameElement = document.createElement("div")
+    let nameElement = document.createElement("h3")
     nameElement.classList.add ("center")
     nameElement.innerText = `Name: ${customer.name.first} ${customer.name.last}`
     contentElement.appendChild(nameElement)
@@ -32,23 +32,38 @@ for (let customer of customers) {
     emailElement.innerText = `Email: ${customer.email}`
     contentElement.appendChild(emailElement)
 
-    // customer location
+    // customer address
     let locationElement = document.createElement("div")
     locationElement.classList.add("center")
-    locationElement.innerText = `Address: ${customer.location.street.number} ${customer.location.street.name}, ${customer.location.city}`
+    // locationElement.innerText = moment().format("ll")
+    locationElement.innerText = `Address: ${customer.location.street.number} ${customer.location.street.name}`
     contentElement.appendChild(locationElement)
 
-    
+    // customer city & state
+    let cityStateElement = document.createElement("div")
+    cityStateElement.classList.add("center")
+    let stateAbbr = (nameToAbbr(customer.location.state))
+    cityStateElement.innerText = `${customer.location.city}, ${stateAbbr} ${customer.location.postcode}`
+    contentElement.appendChild(cityStateElement)
+    // let stateAbbr = (nameToAbbr(customer.location.state))
+    // cityStateElement.innerText = `${customer.location.state}`
+    // contentElement.appendChild(cityStateElement)
+
+    // let dt = document.createElement("div")
+    // dt.DATE_MED(`$DOB: ${customer.dob.date}`).toFormat("LLL dd yyyy")
+
     // customer DOB:
     let dobElement = document.createElement("div")
     dobElement.classList.add("center")
-    // dobElement.innerText = `Date of Birth: ${customer.age.date}`
+    dobElement.innerText = `DOB: ${customer.dob.date}`
     contentElement.appendChild(dobElement)
 
     // customer registration date
     let registeredElement = document.createElement("div")
     registeredElement.classList.add("center")
+    registeredElement.innerText = `Date Registered: ${customer.registered.date}`
     contentElement.appendChild(registeredElement)
+
     
     customerList.appendChild(customerElement)
 }
